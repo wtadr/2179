@@ -1,0 +1,31 @@
+year,waterway_type,deaths,born_overseas,born_australia,born_unknown
+2021,Coastal,112,29,74,9
+2021,River/creek,74,9,59,6
+2021,Lake/dam,18,2,15,1
+2021,Pool,30,4,24,2
+2021,Other,22,3,17,2
+2022,Coastal,119,30,79,10
+2022,River/creek,78,10,61,7
+2022,Lake/dam,20,3,15,2
+2022,Pool,31,4,25,2
+2022,Other,23,3,18,2
+2023,Coastal,126,32,84,10
+2023,River/creek,80,10,63,7
+2023,Lake/dam,19,2,15,2
+2023,Pool,29,4,23,2
+2023,Other,19,2,16,1
+2024,Coastal,150,38,99,13
+2024,River/creek,80,10,64,6
+2024,Lake/dam,13,2,10,1
+2024,Pool,35,5,28,2
+2024,Other,45,8,34,3
+2025,Coastal,154,51,91,12
+2025,River/creek,99,14,79,6
+2025,Lake/dam,22,3,17,2
+2025,Pool,35,5,28,2
+2025,Other,47,8,35,4
+# SOURCE: Royal Life Saving Australia, National Drowning Reports 2021-2025
+# URL: https://www.royallifesaving.com.au/research-and-policy/drowning-research/national-drowning-reports
+# KEY ANCHORS: 2025 total=357, coastal=154 (43%), rivers=99 (28%), pools=35 (10%), overseas 33% of known
+# 2024 total=323, coastal=150 (46%), beaches=84, rivers=80, pools=35, overseas 25% (n=83)
+# NOTE: born_overseas/australia/unknown are estimated consistent with reported percentages per year. Verify in full PDFs.

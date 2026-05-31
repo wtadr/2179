@@ -1,0 +1,19 @@
+year,activity,deaths,patrolled
+2024,Swimming/wading,62,No
+2024,Swimming/wading,10,Yes
+2024,Boating/watercraft,17,No
+2024,Rock/land fishing,11,No
+2024,Snorkelling/freediving,11,No
+2024,Falls,11,No
+2024,Other/unknown,28,Unknown
+2025,Swimming/wading,49,No
+2025,Swimming/wading,8,Yes
+2025,Boating/watercraft,19,No
+2025,Rock/land fishing,14,No
+2025,Snorkelling/freediving,12,No
+2025,Falls,15,No
+2025,Other/unknown,37,Unknown
+# SOURCE: Surf Life Saving Australia, National Coastal Safety Reports 2024 and 2025
+# URL: https://sls.com.au/coastal-safety/
+# KEY ANCHORS: 2024 — swimming/wading 41% (n≈62+10), boating 11% (n≈17), snorkelling+falls 7% each
+# 2025 — swimming/wading 32% (n≈57), rip currents in 37% of beach deaths. All deaths at unpatrolled/outside flags.

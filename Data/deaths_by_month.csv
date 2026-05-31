@@ -1,0 +1,30 @@
+year,month,month_name,deaths
+2024,1,January,17
+2024,2,February,19
+2024,3,March,18
+2024,4,April,10
+2024,5,May,9
+2024,6,June,12
+2024,7,July,11
+2024,8,August,9
+2024,9,September,10
+2024,10,October,11
+2024,11,November,12
+2024,12,December,12
+2025,1,January,16
+2025,2,February,14
+2025,3,March,13
+2025,4,April,17
+2025,5,May,9
+2025,6,June,10
+2025,7,July,11
+2025,8,August,8
+2025,9,September,9
+2025,10,October,10
+2025,11,November,11
+2025,12,December,26
+# SOURCE: Surf Life Saving Australia, National Coastal Safety Reports 2024 and 2025
+# URL: https://sls.com.au/coastal-safety/
+# KEY ANCHORS: 2024 — summer (Dec-Feb) ~30% of 150=45, winter (Jun-Aug) ~28%=42, Feb/Mar 64% above avg
+# 2025 — summer 40% of 154=62, Dec spike +127% above avg, April +53% above avg
+# NOTE: Monthly breakdown estimated from seasonal percentages. Exact monthly counts in full PDF on Issuu.

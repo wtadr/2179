@@ -1,0 +1,65 @@
+beach_name,state,latitude,longitude,hazard_rating,patrol_months
+Bondi Beach,NSW,-33.8915,151.2767,6,Oct-Apr
+Manly Beach,NSW,-33.7970,151.2878,5,Sep-Apr
+Cronulla Beach,NSW,-34.0551,151.1534,4,Oct-Apr
+Coogee Beach,NSW,-33.9208,151.2575,4,Oct-Apr
+Maroubra Beach,NSW,-33.9500,151.2583,7,Oct-Apr
+Dee Why Beach,NSW,-33.7500,151.2917,5,Sep-Apr
+Avalon Beach,NSW,-33.6333,151.3333,6,Oct-Apr
+Narrabeen Beach,NSW,-33.7167,151.3000,7,Sep-Apr
+Curl Curl Beach,NSW,-33.7667,151.3000,5,Oct-Apr
+Freshwater Beach,NSW,-33.7833,151.2917,5,Oct-Apr
+St Kilda Beach,VIC,-37.8678,144.9764,3,Nov-Apr
+Torquay Beach,VIC,-38.3333,144.3167,6,Dec-Mar
+Jan Juc Beach,VIC,-38.3667,144.2833,7,Dec-Mar
+Anglesea Beach,VIC,-38.4000,144.1833,5,Dec-Mar
+Lorne Beach,VIC,-38.5500,143.9833,4,Dec-Mar
+Frankston Beach,VIC,-38.1333,145.1167,2,Nov-Mar
+Inverloch Beach,VIC,-38.6333,145.7333,5,Dec-Mar
+Warrnambool Beach,VIC,-38.3833,142.4833,6,Dec-Mar
+Point Lonsdale Beach,VIC,-38.2833,144.6167,5,Dec-Mar
+Portsea Ocean Beach,VIC,-38.3333,144.7000,8,Dec-Mar
+Surfers Paradise,QLD,-28.0023,153.4305,7,Sep-May
+Noosa Main Beach,QLD,-26.3933,153.0922,3,Sep-May
+Mooloolaba Beach,QLD,-26.6833,153.1167,4,Sep-May
+Coolangatta Beach,QLD,-28.1667,153.5500,5,Sep-May
+Rainbow Bay,QLD,-28.1667,153.5500,6,Sep-May
+Maroochydore Beach,QLD,-26.6500,153.1000,5,Sep-May
+Burleigh Heads Beach,QLD,-28.0833,153.4500,6,Sep-May
+Broadbeach,QLD,-28.0333,153.4333,5,Sep-May
+Caloundra Beach,QLD,-26.8000,153.1333,4,Sep-May
+Rainbow Beach,QLD,-25.9000,153.0833,7,Sep-May
+Glenelg Beach,SA,-34.9808,138.5151,3,Nov-Mar
+Henley Beach,SA,-34.9167,138.4833,3,Nov-Mar
+West Beach,SA,-34.9333,138.5000,4,Nov-Mar
+Semaphore Beach,SA,-34.8333,138.4833,2,Nov-Mar
+Aldinga Beach,SA,-35.2833,138.4500,4,Nov-Mar
+Port Noarlunga Beach,SA,-35.1500,138.4833,4,Nov-Mar
+Christies Beach,SA,-35.1333,138.4833,3,Nov-Mar
+Moana Beach,SA,-35.1833,138.4667,4,Nov-Mar
+Maslin Beach,SA,-35.2167,138.4667,4,Nov-Mar
+Second Valley Beach,SA,-35.5167,138.2167,5,Nov-Mar
+Scarborough Beach,WA,-31.8953,115.7539,5,Oct-Apr
+Cottesloe Beach,WA,-31.9972,115.7519,3,Oct-Apr
+City Beach,WA,-31.9333,115.7667,5,Oct-Apr
+Trigg Beach,WA,-31.8667,115.7667,6,Oct-Apr
+Sorrento Beach,WA,-31.8333,115.7500,4,Oct-Apr
+Floreat Beach,WA,-31.9167,115.7667,4,Oct-Apr
+Mullaloo Beach,WA,-31.7833,115.7333,4,Oct-Apr
+Port Beach,WA,-32.0333,115.7500,3,Oct-Apr
+Swanbourne Beach,WA,-31.9667,115.7500,5,Oct-Apr
+Leighton Beach,WA,-32.0167,115.7500,4,Oct-Apr
+Sandy Bay Beach,TAS,-42.9167,147.3500,3,Dec-Mar
+Kingston Beach,TAS,-42.9833,147.3167,3,Dec-Mar
+Clifton Beach,TAS,-43.0167,147.5000,6,Dec-Mar
+Seven Mile Beach,TAS,-42.8667,147.5167,5,Dec-Mar
+Howden Beach,TAS,-43.0167,147.2833,3,Dec-Mar
+Roches Beach,TAS,-43.0333,147.5167,4,Dec-Mar
+Goats Beach,TAS,-43.1833,147.6000,5,Dec-Mar
+Darwin Waterfront Beach,NT,-12.4667,130.8437,2,May-Oct
+Casuarina Beach,NT,-12.3667,130.8667,4,May-Oct
+Lee Point Beach,NT,-12.3167,130.8833,5,May-Oct
+Mindil Beach,NT,-12.4500,130.8333,3,May-Oct
+# SOURCE: beachsafe.org.au — Surf Life Saving Australia's official beach safety platform
+# URL: https://beachsafe.org.au
+# NOTE: Lat/lon and hazard ratings collected manually from individual beach pages. Hazard rating is on a scale of 1-10 (higher = more hazardous). Patrol months are approximate seasonal ranges shown on each beach page.

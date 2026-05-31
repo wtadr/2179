@@ -13,7 +13,4 @@ year,state,coastal_deaths,all_waterway_deaths,population,coastal_death_rate
 2025,SA,18,24,1860000,0.97
 2025,TAS,5,9,590000,0.85
 2025,NT,1,4,265000,0.38
-# SOURCE 1: Surf Life Saving Australia, National Coastal Safety Reports 2024-2025, sls.com.au/coastal-safety/
-# SOURCE 2: Royal Life Saving Australia, National Drowning Reports 2024-2025, royallifesaving.com.au
-# SOURCE 3: ABS Population by State and Territory, abs.gov.au
-# NOTE: coastal_death_rate = coastal_deaths / population * 100000. All_waterway_deaths from RLS report covers 1 Jul-30 Jun reporting period.
+

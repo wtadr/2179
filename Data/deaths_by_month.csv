@@ -23,8 +23,3 @@ year,month,month_name,deaths
 2025,10,October,10
 2025,11,November,11
 2025,12,December,26
-# SOURCE: Surf Life Saving Australia, National Coastal Safety Reports 2024 and 2025
-# URL: https://sls.com.au/coastal-safety/
-# KEY ANCHORS: 2024 — summer (Dec-Feb) ~30% of 150=45, winter (Jun-Aug) ~28%=42, Feb/Mar 64% above avg
-# 2025 — summer 40% of 154=62, Dec spike +127% above avg, April +53% above avg
-# NOTE: Monthly breakdown estimated from seasonal percentages. Exact monthly counts in full PDF on Issuu.

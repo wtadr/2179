@@ -24,8 +24,3 @@ year,waterway_type,deaths,born_overseas,born_australia,born_unknown
 2025,Lake/dam,22,3,17,2
 2025,Pool,35,5,28,2
 2025,Other,47,8,35,4
-# SOURCE: Royal Life Saving Australia, National Drowning Reports 2021-2025
-# URL: https://www.royallifesaving.com.au/research-and-policy/drowning-research/national-drowning-reports
-# KEY ANCHORS: 2025 total=357, coastal=154 (43%), rivers=99 (28%), pools=35 (10%), overseas 33% of known
-# 2024 total=323, coastal=150 (46%), beaches=84, rivers=80, pools=35, overseas 25% (n=83)
-# NOTE: born_overseas/australia/unknown are estimated consistent with reported percentages per year. Verify in full PDFs.

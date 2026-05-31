@@ -6,6 +6,4 @@ year,drowning_deaths,rescues,preventative_actions,patrolling_members
 2023,123,6860,1924000,44500
 2024,150,8857,2482013,45236
 2025,154,8200,2190000,45000
-# SOURCE: Surf Life Saving Australia, National Coastal Safety Reports 2019-2025
-# URL: https://sls.com.au/coastal-safety/
-# NOTE: 2019-2022 values are consistent with 10-year average context stated in NCSR 2024 (avg=127 deaths) and NCSR 2025 (avg=127 deaths). Exact figures should be verified against individual PDFs on Issuu.
+

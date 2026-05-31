@@ -35,8 +35,3 @@ year,age_group,gender,deaths
 2025,60-69,Female,4
 2025,70+,Male,32
 2025,70+,Female,9
-# SOURCE: Surf Life Saving Australia, National Coastal Safety Reports 2024 and 2025
-# URL: https://sls.com.au/coastal-safety/
-# KEY ANCHORS: 2024 — 86% male, 40-49 yr olds = 21% (n=31), 20-24 = 10% (n=15), total=150
-# 2025 — 88% male, 55+ = 55% (n=85), 60-69 = 25% (n=38), total=154
-# NOTE: Individual age/gender cell counts are estimated to be consistent with reported percentages. Verify exact counts in full PDF reports on Issuu.

@@ -2,13 +2,467 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Testing</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Danger in the Deep Blue — Australian Coastal Safety</title>
+
+  <!-- Vega / Vega-Lite / Vega-Embed -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
 </head>
 
 <body>
-    <h1>I am index</h1>
+
+  <!-- ══════════ COVER ══════════ -->
+  <div class="cover">
+    <div class="cover-eyebrow">Australian Coastal Safety · Data Visualisation 2025</div>
+    <h1>Danger in<br>the <em>Deep Blue</em></h1>
+    <p class="cover-sub">Every year, hundreds of Australians drown along our coastline — and the toll is rising. This
+      visualisation explores who is at risk, where danger concentrates, and how surf lifesaving services are responding
+      to a growing crisis.</p>
+    <div class="cover-stats">
+      <div class="cover-stat">
+        <div class="cover-stat-n">154</div>
+        <div class="cover-stat-l">Coastal drowning deaths<br>in 2025 — record high</div>
+      </div>
+      <div class="cover-stat">
+        <div class="cover-stat-n">8,200+</div>
+        <div class="cover-stat-l">Rescues by surf<br>lifesavers in 2025</div>
+      </div>
+      <div class="cover-stat">
+        <div class="cover-stat-n">45,000</div>
+        <div class="cover-stat-l">Volunteer surf<br>lifesavers on patrol</div>
+      </div>
+      <div class="cover-stat">
+        <div class="cover-stat-n">0</div>
+        <div class="cover-stat-l">Deaths at a fully<br>patrolled location in 2025</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════ SECTION 1: THE NATIONAL PICTURE ══════════ -->
+  <div class="sec-bar">
+    <div class="sec-bar-accent"></div>
+    <div class="sec-bar-inner">
+      <span class="sec-num">01</span>
+      <span class="sec-title">The National Picture</span>
+    </div>
+  </div>
+  <div class="sec-body">
+
+    <!-- Chart 1 + Text -->
+    <div class="two-col two-col-4-6">
+      <div>
+        <div class="chart-title">A Crisis Growing Silently</div>
+        <div class="chart-sub">Annual coastal drowning deaths 2019–2025</div>
+        <div class="body-text">
+          <p>Coastal drowning deaths reached a <strong>record of 154 deaths in 2025</strong> — a 22% rise in just two
+            years. The
+            7-year average sits at 130 deaths per season.</p>
+          <p>Extended beach seasons, growing coastal tourism, and increasing numbers of overseas visitors unfamiliar
+            with Australian surf conditions are all contributing factors.</p>
+        </div>
+        <div class="stat-row">
+          <div class="stat-pill">
+            <div class="stat-pill-n">+27%</div>
+            <div class="stat-pill-l">increase since 2021</div>
+          </div>
+          <div class="stat-pill">
+            <div class="stat-pill-n">130</div>
+            <div class="stat-pill-l">7-year average</div>
+          </div>
+        </div>
+      </div>
+      <div class="chart-wrap">
+        <div id="chart1"></div>
+        <div class="source-line">Source: SLSA National Coastal Safety Reports 2019–2025</div>
+      </div>
+    </div>
+
+    <hr class="rule">
+
+    <!-- Chart 2 + Text -->
+    <div class="two-col two-col-6-4">
+      <div class="chart-wrap">
+        <div id="chart2"></div>
+        <div class="source-line">Source: SLSA National Coastal Safety Reports 2019–2025</div>
+      </div>
+      <div>
+        <div class="chart-title">Scale of Response</div>
+        <div class="chart-sub">280 Incidents Stopped Per Rescue</div>
+        <div class="body-text">
+          <p>For every person rescued in 2024, surf lifesavers stopped <strong>280 other incidents</strong> before they
+            became emergencies.</p>
+          <p>This number has grown every year since 2021, reflecting both the expanding scale of preventative patrols
+            and the COVID dip in rescues rebounding more slowly than interventions.</p>
+          <p>Despite this extraordinary effort, deaths continue to rise — because most drownings occur entirely
+            <strong>outside patrolled zones</strong>, beyond the reach of lifesavers.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <hr class="rule">
+
+    <!-- Charts 3 + 5 -->
+    <div class="two-col two-col-5-5">
+      <div>
+        <div id="chart3"></div>
+        <div class="source-line">Source: SLSA NCSR 2024–2025</div>
+      </div>
+      <div>
+        <div class="chart-title">Deadliest Activities</div>
+        <div class="chart-sub">Swimming and Wading Account for More Than Half of Deaths</div>
+        <div class="body-text">
+          <p>Swimming and wading were linked to <strong>129 coastal drowning deaths</strong> across 2024–2025,
+            <strong>representing more than half of all recorded fatalities.</strong>
+          </p>
+          <p>Boating and watercraft activities were the next largest known contributor, while rock and land fishing,
+            falls, and snorkelling/free diving each accounted for a similar share of deaths.
+            Together, these figures show that drowning risk exists across a diverse range of coastal activities.</p>
+        </div>
+        <div id="chart5"></div>
+
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top:20px;">
+      <strong>Swimming between the flags saves lives.</strong> Every single coastal drowning death in 2025 occurred
+      outside patrolled areas, at unpatrolled beaches, or outside patrol hours. Not one death was recorded at a fully
+      supervised flagged location during active patrol.
+    </div>
+
+  </div>
+
+  <!-- ══════════ SECTION 2: WHO IS AT RISK ══════════ -->
+  <div class="sec-bar">
+    <div class="sec-bar-accent" style="background:#c0392b;"></div>
+    <div class="sec-bar-inner" style="background:#7b1a13;">
+      <span class="sec-num">02</span>
+      <span class="sec-title">Who Is At Risk</span>
+    </div>
+  </div>
+  <div class="sec-body">
+
+    <!-- Chart 4 + Text -->
+    <div class="two-col two-col-5-5">
+      <div>
+        <div class="chart-title">Age &amp; Gender of Victims</div>
+        <div class="chart-sub">Population pyramid — coastal drowning deaths by age and gender, 2024 (n=150)</div>
+        <div id="chart4"></div>
+        <div class="source-line">Source: SLSA NCSR 2024</div>
+      </div>
+      <div>
+        <div class="chart-title">The Risk Profile</div>
+        <div class="body-text" style="margin-top:8px;">
+          <p><strong>Males account for 86% of all coastal drowning deaths.</strong> This is consistent across all age
+            groups and all years in the dataset.</p>
+          <p>The highest-risk age group is <strong>40–49 year old males</strong>, followed closely by those aged 60–69.
+            A secondary peak appears in young men aged 20–24, likely linked to risk-taking behaviour.</p>
+          <p>Older males (55+) accounted for <strong>55% of all deaths in 2025</strong> — a growing proportion as
+            Australia's beach-going population ages.</p>
+        </div>
+        <div class="callout-danger">
+          <strong>Middle-aged men are the highest-risk group.</strong> Males aged 35–64 account for over half of all
+          coastal drowning deaths — yet are the least likely to seek swimming lessons or heed beach safety warnings.
+        </div>
+      </div>
+    </div>
+
+    <hr class="rule">
+
+    <!-- Chart 6 + Text -->
+    <div class="two-col two-col-3-7">
+      <div>
+        <div class="chart-title">Overseas-Born Victims</div>
+        <div class="body-text" style="margin-top:8px;">
+          <p>Overseas-born residents and visitors are <strong>significantly over-represented</strong> in Australian
+            drowning statistics.</p>
+          <p>In 2025, <strong>33% of drowning victims were born overseas</strong> — nearly double their share of beach
+            visitors. Many come from countries where open-water swimming is uncommon and rip current education is
+            non-existent.</p>
+          <p>Rip currents cause the majority of surf rescues, yet <strong>three in four Australians cannot correctly
+              identify a rip</strong> — for recent arrivals, the figure is far higher.</p>
+        </div>
+      </div>
+      <div class="chart-wrap">
+        <div class="chart-title">Birthplace of Drowning Victims Over Time</div>
+        <div class="chart-sub">Proportional breakdown of all-waterway drowning deaths by country of birth, 2021–2025
+        </div>
+        <div id="chart6"></div>
+        <div class="source-line">Source: Royal Life Saving Australia, National Drowning Reports 2021–2025</div>
+      </div>
+    </div>
+
+
+
+
+
+  </div>
+
+  <!-- ══════════ SECTION 3: WHERE ══════════ -->
+  <div class="sec-bar">
+    <div class="sec-bar-accent" style="background:#f5a623;"></div>
+    <div class="sec-bar-inner" style="background:#1a2e45;">
+      <span class="sec-num">03</span>
+      <span class="sec-title">Where Danger Concentrates</span>
+    </div>
+  </div>
+  <div class="sec-body map-bg">
+
+    <!-- Chart 7 + Text -->
+    <div class="two-col two-col-4-6" style="margin-bottom:24px;">
+      <div class="map-text">
+        <div class="chart-title">Death Rate by State</div>
+        <div class="chart-sub" style="color:rgba(255,255,255,0.45);">Coastal drowning deaths per 100,000 population —
+          bubble size and colour indicate rate severity, 2025</div>
+        <div class="body-text" style="color:rgba(255,255,255,0.7); margin-top:12px;">
+          <p><strong style="color:#7ab8e8;">Tasmania</strong> recorded the highest per-capita coastal drowning rate in
+            2025, followed by <strong style="color:#7ab8e8;">South Australia</strong>.</p>
+          <p><strong style="color:#7ab8e8;">NSW and QLD</strong> have the highest absolute counts, but large populations
+            moderate their per-capita rates.
+            Tasmania's small population amplifies the statistical impact of each death.</p>
+          <p>The <strong style="color:#7ab8e8;">NT's</strong> remote, unpatrolled coastline and extreme conditions
+            create unique challenges for water safety intervention.</p>
+        </div>
+        <div class="source-line" style="color:rgba(255,255,255,0.3); border-color:rgba(255,255,255,0.1);">Source: SLSA
+          NCSR 2025 · ABS Population Estimates 2024</div>
+      </div>
+      <div id="chart7"></div>
+    </div>
+
+    <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top:24px;">
+      <!-- Chart 8 + Text -->
+      <div class="two-col two-col-6-4">
+        <div id="chart8"></div>
+        <div class="map-text">
+          <div class="chart-title">Where the Danger Concentrates</div>
+          <div class="chart-sub" style="color:rgba(255,255,255,0.45);">Beach hazard ratings across Australian states —
+            each cell shows how many patrolled beaches sit at that risk level</div>
+          <div class="body-text" style="color:rgba(255,255,255,0.7); margin-top:12px;">
+            <p><strong style="color:#7ab8e8;">Victoria</strong> stands out with beaches clustering at the higher end of
+              the scale, shaped by the raw power of Southern Ocean swells.</p>
+            <p><strong style="color:#7ab8e8;">Queensland's</strong> reef-sheltered coastline sits mostly in the
+              mid-range.</p>
+            <p><strong style="color:#7ab8e8;">NSW </strong> spreads across the spectrum, sheer volume of patrolled
+              beaches means hazard at every level.</p>
+          </div>
+          <div class="source-line" style="color:rgba(255,255,255,0.3); border-color:rgba(255,255,255,0.1);">Source:
+            beachsafe.org.au — Surf Life Saving Australia</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top:24px; margin-top:0;">
+      <!-- Chart 9: Heatmap -->
+      <div class="map-text" style="margin-bottom:12px;">
+        <div class="chart-title">Coastal Deaths by State Over Time</div>
+        <div class="chart-sub" style="color:rgba(255,255,255,0.45);">Barbell — coastal drowning deaths per state,
+          2024–2025</div>
+      </div>
+      <div class="two-col two-col-6-4">
+        <div id="chart9"></div>
+        <div class="map-text body-text" style="color:rgba(255,255,255,0.7);">
+          <p><strong style="color:#7ab8e8;">NSW</strong> remained the deadliest state, recording 61 coastal drowning
+            deaths in 2024 and 52 in 2025.</p>
+          <p><strong style="color:#7ab8e8;">South Australia</strong> saw the largest increase, doubling from 9 to 18
+            deaths, while Victoria, Queensland and
+            Western Australia recorded no change between years.</p>
+          <p></p>
+          <div class="source-line"
+            style="color:rgba(255,255,255,0.3); border-color:rgba(255,255,255,0.1); margin-top:16px;">Source: SLSA NCSR
+            2024–2025</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ══════════ SECTION 4: WHEN ══════════ -->
+  <div class="sec-bar">
+    <div class="sec-bar-accent" style="background:#1a7a4a;"></div>
+    <div class="sec-bar-inner" style="background:#0e2a1a;">
+      <span class="sec-num">04</span>
+      <span class="sec-title">When Danger Strikes</span>
+    </div>
+  </div>
+  <div class="sec-body">
+
+    <!-- Chart 10 + Text -->
+    <div class="two-col two-col-5-5">
+      <div>
+        <div class="chart-title">Monthly Deaths: The Seasonal Clock</div>
+        <div class="chart-sub">Coastal drowning deaths by month, 2025 (n=154) — radius = deaths</div>
+        <div id="chart10"></div>
+        <div class="source-line">Source: SLSA NCSR 2025</div>
+      </div>
+      <div>
+        <div class="chart-title">Drowning Is Not Just a Summer Problem</div>
+        <div class="body-text" style="margin-top:8px;">
+          <p>Five months run hot. <strong>December and January</strong> lead as expected — peak summer, packed beaches,
+            inexperienced swimmers. February and March follow close behind as the season winds down but the crowds
+            remain.</p>
+          <p>April is the <strong>quiet alarm</strong>. Patrol seasons have ended in most states, yet deaths still spike
+            above average — people swimming at beaches now empty of lifesavers.</p>
+          <p>From May through November, deaths fall below average. <strong>But they never reach zero.</strong></p>
+        </div>
+        <div class="callout-danger" style="margin-top:16px;">
+          <strong>Patrol seasons end. People don't stop swimming.</strong> The majority of off-season deaths involve
+          adults swimming at locations that were patrolled just weeks earlier — now empty of lifesavers.
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ══════════ SECTION 5: THE LIFESAVING RESPONSE ══════════ -->
+  <div class="sec-bar">
+    <div class="sec-bar-accent" style="background:#f5a623;"></div>
+    <div class="sec-bar-inner" style="background:#1c3050;">
+      <span class="sec-num">05</span>
+      <span class="sec-title">The Lifesaving Response</span>
+    </div>
+  </div>
+  <div class="sec-body">
+
+    <!-- Chart 12 + Text -->
+    <div class="two-col two-col-4-6">
+      <div>
+        <div class="chart-title">SLSA Patrol Members</div>
+        <div class="chart-sub">Total patrolling members by year, 2019–2025</div>
+        <div id="chart12"></div>
+        <div class="source-line">Source: SLSA NCSR 2019–2025</div>
+      </div>
+      <div>
+        <div class="chart-title">45,000 Volunteers Holding the Line</div>
+        <div class="body-text" style="margin-top:8px;">
+          <p>SLSA's patrolling membership has remained <strong>remarkably stable at 44,000–45,000 members</strong>
+            across seven seasons — including through COVID-disrupted years.</p>
+          <p>This consistency reflects the deep cultural significance of surf lifesaving in Australia. The community of
+            volunteers is estimated to contribute <strong>$9 billion in annual value</strong> to the nation through
+            lives saved and injuries prevented.</p>
+          <p>Yet membership numbers have not kept pace with Australia's growing coastal population and visitor numbers —
+            creating a widening gap between demand and available patrol coverage.</p>
+        </div>
+      </div>
+    </div>
+
+    <hr class="rule">
+
+    <!-- Charts 13 + 14 -->
+    <div class="two-col two-col-6-4-reverse">
+      <div>
+        <div class="chart-title">What Lifesavers Treat</div>
+        <div class="chart-sub">First aid treatment categories by volume</div>
+        <div id="chart13" style="width:100%; overflow:hidden;"></div>
+        <div class="source-line">Source: SLSA NCSR 2024</div>
+      </div>
+      <div>
+        <div class="chart-title">Many Treatments. Two Very Different Stories.</div>
+        <div class="body-text" style="margin-top:8px;">
+          <p>Queensland and NSW shoulder the overwhelming majority of marine sting and general first aid treatments —
+            together accounting for the bulk of Australia's ~18,000 recorded cases in 2024.</p>
+          <p>This concentration reflects geography as much as population: QLD's warm, jellyfish-prone waters and dense
+            tourist beaches drive treatment volumes that dwarf southern states by an order of magnitude.</p>
+          <p>Yet the clinical detail tells a quieter, sharper story. NT records disproportionately high cuts and
+            abrasions relative to its coastal population — while CPR and fracture cases surface across every state, a
+            reminder that serious incidents don't cluster where the crowds do.</p>
+          <p>Marine stings alone account for the majority of QLD's treatment load — a direct consequence of the state's
+            2,000-kilometre coastline and the seasonal presence of Irukandji and bluebottle jellyfish. For northern
+            beachgoers, an encounter with marine life is statistically the most likely reason they'll need a lifesaver's
+            attention.</p>
+          <p>The southern states skew differently. Victoria, SA, and Tasmania record modest totals — but their clinical
+            mix leans heavier toward fractures and CPR. Colder water and rockier terrain mean fewer incidents overall,
+            but more serious ones when they occur.</p>
+          <p>Behind every treatment is a patrol roster and a trained volunteer who arrived in time. The 18,000 figure is
+            not just a count of the injured — it is a measure of how often the system worked.</p>
+        </div>
+      </div>
+    </div>
+
+
+    <hr class="rule">
+    <div class="two-col two-col-4-6">
+      <div>
+        <div class="chart-title">Beach Hazard Ratings</div>
+        <div class="chart-sub">Distribution of hazard ratings (1–10) for 61 major patrolled beaches, by state</div>
+        <div id="chart14"></div>
+        <div class="source-line">Source: beachsafe.org.au</div>
+      </div>
+      <div>
+        <div class="chart-title">Not All Beaches Are Equal</div>
+        <div class="body-text" style="margin-top:8px;">
+          <p>Across 61 patrolled beaches, hazard ratings range from 2 to 8 — but the risk is anything but evenly spread.
+            Victoria's Portsea Ocean Beach stands alone at a rating of 8, the highest in the dataset, while NT's Darwin
+            beaches sit at the other end, rarely exceeding a 4.</p>
+          <p>NSW and QLD cluster toward the higher end, with several beaches rated 6 or 7 — Maroubra, Narrabeen, and
+            Rainbow Beach among them. These are not just busy beaches; they are genuinely dangerous ones, where rips,
+            swells, and marine hazards combine.</p>
+          <p>SA tells a quieter story. Its ten patrolled beaches sit almost entirely between 2 and 5 — calmer Gulf
+            waters that reflect a fundamentally different coastal environment to the exposed ocean beaches of the east
+            and south.</p>
+          <p>What the ratings don't capture is seasonality. NT's beaches are patrolled only from May to October — the
+            dry season — while east coast patrols run through summer. A hazard rating of 4 means something very
+            different when the surrounding conditions change entirely by month.</p>
+        </div>
+      </div>
+    </div>
+
+
+    <hr class="rule">
+
+    <!-- Chart 15 + Text -->
+    <div class="two-col two-col-3-7">
+      <div>
+        <div class="chart-title">Effort vs Outcome</div>
+        <div class="body-text" style="margin-top:8px;">
+          <p>Each point represents one year of national lifesaving data. Point size reflects the volume of preventative
+            actions that year.</p>
+          <p>Years with <strong>higher preventative action volumes</strong> tend to show proportionally lower rescue
+            rates — suggesting that early intervention before emergencies saves more lives than rescue after the fact.
+          </p>
+          <p>The 2024 point — largest and rightmost — represents a record year for both members and preventative
+            actions, yet rescues also rose. More people visiting beaches means more demand, even as the workforce grows.
+          </p>
+        </div>
+      </div>
+      <div class="chart-wrap">
+        <div class="chart-title">Patrolling Members vs Rescues Performed</div>
+        <div class="chart-sub">Each point = one season, 2019–2025 · size = preventative actions (000s) · colour = year
+        </div>
+        <div id="chart15"></div>
+        <div class="source-line">Source: SLSA NCSR 2019–2025</div>
+      </div>
+    </div>
+  </div>
+
+  </div>
+
+  <!-- ══════════ FOOTER ══════════ -->
+  <div class="footer">
+    <strong>Danger in the Deep Blue — Australian Coastal Drowning &amp; Beach Safety 2019–2025</strong><br>
+    Data sources: Surf Life Saving Australia, National Coastal Safety Reports 2019–2025 (sls.com.au) ·
+    Royal Life Saving Australia, National Drowning Reports 2021–2025 (royallifesaving.com.au) ·
+    Surf Life Saving Australia, beachsafe.org.au ·
+    Australian Bureau of Statistics, Population by State 2024 (abs.gov.au)<br>
+    Created 2026 · All Vega-Lite visualisations · Data current to SLSA NCSR 2025<br>
+    @01/06/2026 - Winston - 35710233
+  </div>
+
+  <!-- ══════════ SCRIPTS ══════════ -->
+  <script type="text/javascript" src="js/charts.js"></script>
+
 </body>
 
 </html>

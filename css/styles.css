@@ -1,0 +1,391 @@
+/* ════════════════════════════════════════════════
+   Danger in the Deep Blue — Stylesheet
+   ════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap');
+
+/* ── CSS VARIABLES ── */
+:root {
+  --ocean: #0b3d6e;
+  --wave: #1565a8;
+  --sky: #4a90d9;
+  --foam: #d4eaf7;
+  --sand: #f5edd8;
+  --danger: #c0392b;
+  --warning: #e67e22;
+  --safe: #1a7a4a;
+  --dark: #12192b;
+  --mid: #3d4f66;
+  --muted: #6b7c93;
+  --rule: #e0e8f0;
+  --white: #ffffff;
+  --offwhite: #f4f7fb;
+}
+
+/* ── RESET ── */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── BASE ── */
+body {
+  font-family: 'Barlow', sans-serif;
+  background: var(--offwhite);
+  color: var(--dark);
+  font-size: 14px;
+  line-height: 1.55;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* ════════════════════════════════════════════════
+   COVER
+   ════════════════════════════════════════════════ */
+.cover {
+  background: var(--ocean);
+  color: white;
+  padding: 52px 48px 44px;
+  position: relative;
+  overflow: hidden;
+}
+
+.cover::after {
+  content: '';
+  position: absolute;
+  right: -60px;
+  top: -60px;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.cover-eyebrow {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #7ab8e8;
+  margin-bottom: 10px;
+}
+
+.cover h1 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 68px;
+  font-weight: 900;
+  line-height: 0.95;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  letter-spacing: -1px;
+}
+
+.cover h1 em {
+  color: #f5a623;
+  font-style: normal;
+}
+
+.cover-sub {
+  font-size: 15px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.75);
+  max-width: 540px;
+  margin-bottom: 36px;
+  line-height: 1.6;
+}
+
+.cover-stats {
+  display: flex;
+  gap: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding-top: 28px;
+}
+
+.cover-stat {
+  padding-right: 36px;
+  margin-right: 36px;
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.cover-stat:last-child {
+  border-right: none;
+}
+
+.cover-stat-n {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 44px;
+  font-weight: 800;
+  color: #f5a623;
+  line-height: 1;
+}
+
+.cover-stat-l {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.55);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 4px;
+}
+
+/* ════════════════════════════════════════════════
+   SECTION HEADER BAR
+   ════════════════════════════════════════════════ */
+.sec-bar {
+  display: flex;
+  align-items: stretch;
+  margin-top: 48px;
+}
+
+.sec-bar-accent {
+  width: 6px;
+  background: var(--wave);
+  flex-shrink: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.sec-bar-inner {
+  background: var(--ocean);
+  flex: 1;
+  padding: 14px 22px;
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+}
+
+.sec-num {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #7ab8e8;
+}
+
+.sec-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: white;
+}
+
+/* ════════════════════════════════════════════════
+   SECTION BODY
+   ════════════════════════════════════════════════ */
+.sec-body {
+  background: white;
+  padding: 28px 32px;
+  border: 1px solid var(--rule);
+  border-top: none;
+}
+
+/* Dark map background variant */
+.sec-body.map-bg {
+  background: #0d1f35;
+}
+
+/* ════════════════════════════════════════════════
+   TWO-COLUMN GRID LAYOUTS
+   ════════════════════════════════════════════════ */
+.two-col {
+  display: grid;
+  gap: 28px;
+}
+
+.two-col-6-4 {
+  grid-template-columns: 3fr 2fr;
+}
+
+.two-col-4-6 {
+  grid-template-columns: 2fr 3fr;
+}
+
+.two-col-5-5 {
+  grid-template-columns: 1fr 1fr;
+}
+
+.two-col-3-7 {
+  grid-template-columns: 1fr 2.5fr;
+}
+
+
+/* ════════════════════════════════════════════════
+   TYPOGRAPHY
+   ════════════════════════════════════════════════ */
+.chart-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  color: var(--ocean);
+  margin-bottom: 3px;
+}
+
+.chart-sub {
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.body-text {
+  font-size: 13px;
+  color: var(--mid);
+  line-height: 1.65;
+}
+
+.body-text p {
+  margin-bottom: 10px;
+}
+
+.body-text p:last-child {
+  margin-bottom: 0;
+}
+
+.body-text strong {
+  color: var(--dark);
+  font-weight: 600;
+}
+
+.source-line {
+  font-size: 10px;
+  color: #a0adb8;
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px solid var(--rule);
+}
+
+/* Map section text overrides */
+.map-text .chart-title {
+  color: #7ab8e8;
+}
+
+.map-text .chart-sub {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.map-text .source-line {
+  color: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ════════════════════════════════════════════════
+   DIVIDER
+   ════════════════════════════════════════════════ */
+.rule {
+  border: none;
+  border-top: 1px solid var(--rule);
+  margin: 24px 0;
+}
+
+/* ════════════════════════════════════════════════
+   CALLOUT / HIGHLIGHT BOXES
+   ════════════════════════════════════════════════ */
+.callout {
+  background: var(--ocean);
+  color: white;
+  padding: 18px 22px;
+  border-left: 5px solid #f5a623;
+  margin: 20px 0;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.callout strong {
+  color: #f5a623;
+}
+
+.callout-danger {
+  background: #fdf1f0;
+  border-left: 5px solid var(--danger);
+  padding: 14px 18px;
+  margin: 16px 0;
+  font-size: 13px;
+  color: var(--mid);
+  line-height: 1.6;
+}
+
+.callout-danger strong {
+  color: var(--danger);
+}
+
+/* ════════════════════════════════════════════════
+   STAT PILLS
+   ════════════════════════════════════════════════ */
+.stat-row {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin: 16px 0;
+}
+
+.stat-pill {
+  background: var(--foam);
+  border-left: 3px solid var(--wave);
+  padding: 10px 14px;
+  flex: 1;
+  min-width: 100px;
+}
+
+.stat-pill-n {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--ocean);
+  line-height: 1;
+}
+
+.stat-pill-l {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+/* ════════════════════════════════════════════════
+   CHART CONTAINERS
+   ════════════════════════════════════════════════ */
+.chart-wrap {
+  width: 100%;
+}
+
+.vega-embed {
+  width: 100% !important;
+}
+
+/* ════════════════════════════════════════════════
+   FOOTER
+   ════════════════════════════════════════════════ */
+.footer {
+  background: var(--dark);
+  color: rgba(255, 255, 255, 0.5);
+  padding: 28px 32px;
+  font-size: 11px;
+  line-height: 1.8;
+  margin-top: 0;
+}
+
+.footer strong {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* ════════════════════════════════════════════════
+   UTILITY
+   ════════════════════════════════════════════════ */
+.mt16 {
+  margin-top: 16px;
+}
+
+.mt24 {
+  margin-top: 24px;
+}
+
+.two-col>div {
+  min-width: 0;
+}
+
+.two-col-6-4-reverse>div {
+  min-width: 0;
+}

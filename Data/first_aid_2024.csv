@@ -1,0 +1,29 @@
+state,category,count
+QLD,Marine Stings,9394
+QLD,Fractures/Dislocations,136
+QLD,CPR Provided,16
+QLD,Other,15560
+NSW,Marine Stings,11646
+NSW,Fractures/Dislocations,227
+NSW,CPR Provided,13
+NSW,Other,6212
+WA,Marine Stings,2056
+WA,Fractures/Dislocations,62
+WA,CPR Provided,7
+WA,Other,1627
+VIC,Marine Stings,101
+VIC,Fractures/Dislocations,110
+VIC,CPR Provided,17
+VIC,Other,1093
+NT,Marine Stings,3
+NT,Fractures/Dislocations,2
+NT,Cuts & Abrasions,337
+NT,Other,26
+SA,Marine Stings,153
+SA,Fractures/Dislocations,14
+SA,CPR Provided,3
+SA,Other,380
+TAS,Marine Stings,18
+TAS,Fractures/Dislocations,3
+TAS,Cuts & Abrasions,79
+TAS,Other,36

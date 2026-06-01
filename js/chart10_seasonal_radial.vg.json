@@ -1,0 +1,138 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Radial chart — deaths vs monthly average by month, 2025",
+  "width": "container",
+  "height": 320,
+  "data": {
+    "url": "https://raw.githubusercontent.com/wtadr/2179/refs/heads/main/Data/deaths_by_month.csv"
+  },
+  "transform": [
+    {
+      "aggregate": [
+        {
+          "op": "mean",
+          "field": "deaths",
+          "as": "avg_deaths"
+        }
+      ],
+      "groupby": [
+        "month",
+        "month_name"
+      ]
+    },
+    {
+      "joinaggregate": [
+        {
+          "op": "mean",
+          "field": "avg_deaths",
+          "as": "overall_avg"
+        }
+      ]
+    },
+    {
+      "calculate": "datum.avg_deaths - datum.overall_avg",
+      "as": "deviation"
+    },
+    {
+      "calculate": "datum.deviation > 0 ? 'Above average' : 'Below average'",
+      "as": "status"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "arc",
+        "innerRadius": 50,
+        "padAngle": 0.03
+      },
+      "encoding": {
+        "theta": {
+          "field": "month_name",
+          "type": "ordinal",
+          "sort": {
+            "field": "month",
+            "order": "ascending"
+          }
+        },
+        "radius": {
+          "field": "avg_deaths",
+          "type": "quantitative",
+          "scale": {
+            "rangeMin": 50,
+            "rangeMax": 140
+          }
+        },
+        "color": {
+          "field": "status",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Above average",
+              "Below average"
+            ],
+            "range": [
+              "#c0392b",
+              "#4a90d9"
+            ]
+          },
+          "legend": {
+            "title": null,
+            "orient": "bottom",
+            "labelFont": "Barlow",
+            "labelFontSize": 11
+          }
+        },
+        "opacity": {
+          "field": "deviation",
+          "type": "quantitative",
+          "scale": {
+            "rangeMin": 0.5,
+            "rangeMax": 1
+          },
+          "legend": null
+        },
+        "tooltip": [
+          {
+            "field": "month_name",
+            "title": "Month"
+          },
+          {
+            "field": "avg_deaths",
+            "title": "Avg Deaths",
+            "format": ".1f"
+          },
+          {
+            "field": "deviation",
+            "title": "vs Average",
+            "format": "+.1f"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "radius": 158,
+        "fontSize": 13,
+        "font": "Barlow",
+        "color": "#6b7c93"
+      },
+      "encoding": {
+        "theta": {
+          "field": "month",
+          "type": "quantitative",
+          "sort": "ascending"
+        },
+        "text": {
+          "field": "month_name",
+          "type": "nominal"
+        }
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    }
+  }
+}

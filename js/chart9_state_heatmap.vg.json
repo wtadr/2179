@@ -1,0 +1,81 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Barbell chart — coastal drowning deaths by state, 2024 vs 2025",
+  "width": "container",
+  "height": 230,
+  "data": {
+    "url": "https://raw.githubusercontent.com/wtadr/2179/refs/heads/main/Data/deaths_by_state.csv"
+  },
+  "transform": [
+    {
+      "filter": "datum.coastal_deaths > 0"
+    },
+    {
+      "pivot": "year",
+      "value": "coastal_deaths",
+      "groupby": ["state"]
+    }
+  ],
+  "encoding": {
+    "y": {
+      "field": "state",
+      "type": "ordinal",
+      "sort": ["TAS", "NT", "SA", "WA", "VIC", "QLD", "NSW"],
+      "axis": { "title": null, "labelFontSize": 12 }
+    }
+  },
+  "layer": [
+    {
+      "mark": { "type": "rule", "strokeWidth": 2.5 },
+      "encoding": {
+        "x": { "field": "2024", "type": "quantitative", "title": "Coastal Deaths" },
+        "x2": { "field": "2025" },
+        "color": {
+          "condition": {
+            "test": "datum['2025'] > datum['2024']",
+            "value": "#FF9000"
+          },
+          "value": "#00BBFF"
+        },
+        "tooltip": [
+          { "field": "state", "title": "State" },
+          { "field": "2024", "title": "2024 Deaths" },
+          { "field": "2025", "title": "2025 Deaths" }
+        ]
+      }
+    },
+    {
+      "mark": { "type": "point", "filled": true, "size": 100, "opacity": 1 },
+      "encoding": {
+        "x": { "field": "2024", "type": "quantitative" },
+        "color": { "value": "#00BBFF" },
+        "tooltip": [
+          { "field": "state", "title": "State" },
+          { "field": "2024", "title": "2024 Deaths" }
+        ]
+      }
+    },
+    {
+      "mark": { "type": "point", "filled": true, "size": 100, "opacity": 1 },
+      "encoding": {
+        "x": { "field": "2025", "type": "quantitative" },
+        "color": { "value": "#FF9000" },
+        "tooltip": [
+          { "field": "state", "title": "State" },
+          { "field": "2025", "title": "2025 Deaths" }
+        ]
+      }
+    }
+  ],
+  "config": {
+    "view": { "stroke": null },
+    "axis": {
+      "grid": true,
+      "gridColor": "#e8edf2",
+      "labelFont": "Barlow",
+      "titleFont": "Barlow",
+      "labelFontSize": 11,
+      "titleFontSize": 11
+    }
+  }
+}

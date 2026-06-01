@@ -1,0 +1,209 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Annual coastal drowning deaths 2019–2025 with average rule",
+  "width": "container",
+  "height": 200,
+  "layer": [
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/wtadr/2179/refs/heads/main/Data/coastal_annual.csv"
+      },
+      "transform": [
+        {
+          "filter": "datum.year >= 2019" 
+        }
+      ],
+      "mark": {
+        "type": "area",
+        "opacity": 0.1,
+        "color": "#0b3d6e"
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "ordinal"
+        },
+        "y": {
+          "field": "drowning_deaths",
+          "type": "quantitative",
+          "title": "Deaths"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/wtadr/2179/refs/heads/main/Data/coastal_annual.csv"
+      },
+      
+      "mark": {
+        "type": "rule",
+        "strokeDash": [
+          5,
+          3
+        ],
+        "color": "#aab4be",
+        "strokeWidth": 1.5
+      },
+      "encoding": {
+        "y": {
+          "field": "avg",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/wtadr/2179/refs/heads/main/Data/coastal_annual.csv"
+      },
+      "transform": [
+        {
+          "filter": "datum.year >= 2019" 
+        }
+      ],
+      "mark": {
+        "type": "line",
+        "point": {
+          "filled": true,
+          "size": 55,
+          "fill": "#0b3d6e"
+        },
+        "color": "#0b3d6e",
+        "strokeWidth": 2
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "ordinal",
+          "axis": {
+            "title": "",
+            "labelAngle": 0
+          }
+        },
+        "y": {
+          "field": "drowning_deaths",
+          "type": "quantitative",
+          "title": "Deaths"
+        },
+        "tooltip": [
+          {
+            "field": "year",
+            "title": "Year"
+          },
+          {
+            "field": "drowning_deaths",
+            "title": "Deaths"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/wtadr/2179/refs/heads/main/Data/coastal_annual.csv"
+      },
+      "transform": [
+        {
+          "filter": "datum.year == 2025"
+        }
+      ],
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "color": "#c0392b",
+        "size": 100
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "ordinal"
+        },
+        "y": {
+          "field": "drowning_deaths",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/wtadr/2179/refs/heads/main/Data/coastal_annual.csv"
+      },
+      "transform": [
+        {
+          "filter": "datum.year == 2025"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 8,
+        "dy": -5,
+        "color": "#c0392b",
+        "fontSize": 11,
+        "fontWeight": "bold",
+        "font": "Barlow"
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "ordinal"
+        },
+        "y": {
+          "field": "drowning_deaths",
+          "type": "quantitative"
+        },
+        "text": {
+          "value": "154 ← Record"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/wtadr/2179/refs/heads/main/Data/coastal_annual.csv"
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 6,
+        "dy": -7,
+        "color": "#aab4be",
+        "fontSize": 10,
+        "font": "Barlow"
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "ordinal"
+        },
+        "y": {
+          "field": "avg",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "avg_label",
+          "type": "nominal"
+        }
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "grid": true,
+      "gridColor": "#e8edf2",
+      "labelFont": "Barlow",
+      "titleFont": "Barlow",
+      "labelFontSize": 11,
+      "titleFontSize": 11
+    },
+    "legend": {
+      "labelFont": "Barlow",
+      "titleFont": "Barlow",
+      "labelFontSize": 11,
+      "titleFontSize": 11
+    },
+    "text": {
+      "font": "Barlow"
+    }
+  }
+}

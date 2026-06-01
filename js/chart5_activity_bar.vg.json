@@ -1,0 +1,85 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Horizontal bar chart — deaths by activity, ranked, 2024–2025 combined",
+  "width": "container",
+  "height": 280,
+  "data": {
+    "url": "https://raw.githubusercontent.com/wtadr/2179/refs/heads/main/Data/deaths_by_activity.csv"
+  },
+  "transform": [
+    {
+      "filter": "datum.activity !== 'Other/unknown'"
+    },
+    {
+      "aggregate": [
+        {
+          "op": "sum",
+          "field": "deaths",
+          "as": "total_deaths"
+        }
+      ],
+      "groupby": [
+        "activity"
+      ]
+    }
+  ],
+  "mark": {
+    "type": "bar",
+    "cornerRadiusEnd": 3
+  },
+  "encoding": {
+    "y": {
+      "field": "activity",
+      "type": "ordinal",
+      "sort": {
+        "field": "total_deaths",
+        "order": "descending"
+      },
+      "scale": {
+        "domain": ["Swimming/wading", "Boating/watercraft", "Falls", "Rock/land fishing", "Snorkelling/freediving"]
+      },
+      "axis": {
+        "title": null,
+        "labelFontSize": 11
+      }
+    },
+    "x": {
+      "field": "total_deaths",
+      "type": "quantitative",
+      "axis": {
+        "title": "Deaths (2024–25 combined)"
+      }
+    },
+    "color": {
+      "field": "activity", "type": "nominal",
+      "scale": {
+        "domain": ["Swimming/wading", "Boating/watercraft", "Rock/land fishing", "Snorkelling/freediving", "Falls", "Other/unknown"],
+        "range": ["#0b3d6e", "#1565a8", "#4a90d9", "#e67e22", "#c0392b", "#bdc3c7"]
+      },
+      "legend": { "title": null, "orient": "bottom", "columns": 2, "labelFont": "Barlow", "labelFontSize": 11 }
+    },
+    "tooltip": [
+      {
+        "field": "activity",
+        "title": "Activity"
+      },
+      {
+        "field": "total_deaths",
+        "title": "Deaths (2024–25 combined)"
+      }
+    ]
+  },
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "grid": true,
+      "gridColor": "#e8edf2",
+      "labelFont": "Barlow",
+      "titleFont": "Barlow",
+      "labelFontSize": 11,
+      "titleFontSize": 11
+    }
+  }
+}

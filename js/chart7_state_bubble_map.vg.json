@@ -1,0 +1,132 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Coastal Drowning Deaths Per 100,000 Population by State",
+    "subtitle": "Bubble size and colour indicate rate severity, 2025",
+    "subtitleColor": "#aec6e0",
+    "fontSize": 14,
+    "subtitleFontSize": 11,
+    "font": "Barlow Condensed",
+    "fontWeight": "bold",
+    "color": "#7ab8e8",
+    "anchor": "start"
+  },
+  "width": "container",
+  "height": 470,
+  "projection": {
+    "type": "mercator",
+    "center": [134, -28],
+    "scale": 680
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "https://cdn.jsdelivr.net/npm/vega-datasets@2/data/world-110m.json",
+        "format": { "type": "topojson", "feature": "countries" }
+      },
+      "transform": [{ "filter": "datum.id !== 36" }],
+      "mark": { "type": "geoshape", "fill": "#1e3a5f", "stroke": "#0b3d6e", "strokeWidth": 0.5 }
+    },
+    {
+      "data": {
+        "url": "https://cdn.jsdelivr.net/npm/vega-datasets@2/data/world-110m.json",
+        "format": { "type": "topojson", "feature": "countries" }
+      },
+      "transform": [{ "filter": "datum.id === 36" }],
+      "mark": { "type": "geoshape", "fill": "#213d5c", "stroke": "#4a90d9", "strokeWidth": 1 }
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/wtadr/2179/refs/heads/main/Data/deaths_by_state.csv"
+      },
+      "transform": [
+        { "filter": "datum.year == 2025" },
+        {
+          "lookup": "state",
+          "from": {
+            "data": {
+              "values": [
+                { "state": "NSW", "lon": 146.9, "lat": -34.5 },
+                { "state": "VIC", "lon": 144.9, "lat": -37.0 },
+                { "state": "QLD", "lon": 144.0, "lat": -22.0 },
+                { "state": "WA",  "lon": 121.6, "lat": -26.0 },
+                { "state": "SA",  "lon": 135.5, "lat": -30.0 },
+                { "state": "TAS", "lon": 146.5, "lat": -42.0 },
+                { "state": "NT",  "lon": 133.4, "lat": -19.5 }
+              ]
+            },
+            "key": "state",
+            "fields": ["lon", "lat"]
+          }
+        }
+      ],
+      "mark": { "type": "circle", "opacity": 0.82 },
+      "encoding": {
+        "longitude": { "field": "lon", "type": "quantitative" },
+        "latitude":  { "field": "lat", "type": "quantitative" },
+        "size": {
+          "field": "coastal_death_rate",
+          "type": "quantitative",
+          "scale": { "range": [300, 3000] },
+          "legend": {
+            "title": "Rate per 100k",
+            "labelColor": "#aec6e0",
+            "titleColor": "#aec6e0",
+            "orient": "bottom-right"
+          }
+        },
+        "color": {
+          "field": "coastal_death_rate",
+          "type": "quantitative",
+          "scale": { "scheme": "reds", "domain": [0, 2] },
+          "legend": null
+        },
+        "tooltip": [
+          { "field": "state",             "title": "State" },
+          { "field": "coastal_deaths",    "title": "Coastal Deaths" },
+          { "field": "coastal_death_rate","title": "Rate per 100k", "format": ".2f" }
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/wtadr/2179/refs/heads/main/Data/deaths_by_state.csv"
+      },
+      "transform": [
+        { "filter": "datum.year == 2025" },
+        {
+          "lookup": "state",
+          "from": {
+            "data": {
+              "values": [
+                { "state": "NSW", "lon": 146.9, "lat": -34.5 },
+                { "state": "VIC", "lon": 144.9, "lat": -37.0 },
+                { "state": "QLD", "lon": 144.0, "lat": -22.0 },
+                { "state": "WA",  "lon": 121.6, "lat": -26.0 },
+                { "state": "SA",  "lon": 135.5, "lat": -30.0 },
+                { "state": "TAS", "lon": 146.5, "lat": -42.0 },
+                { "state": "NT",  "lon": 133.4, "lat": -19.5 }
+              ]
+            },
+            "key": "state",
+            "fields": ["lon", "lat"]
+          }
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": 11,
+        "fontWeight": "bold",
+        "color": "white",
+        "dy": -18,
+        "font": "Barlow"
+      },
+      "encoding": {
+        "longitude": { "field": "lon", "type": "quantitative" },
+        "latitude":  { "field": "lat", "type": "quantitative" },
+        "text":      { "field": "state", "type": "nominal" }
+      }
+    }
+  ],
+  "config": { "view": { "stroke": null } }
+}

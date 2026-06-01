@@ -1,0 +1,196 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "First aid treatment categories by state, 2024",
+    "data": {
+        "url": "https://raw.githubusercontent.com/wtadr/2179/refs/heads/main/Data/first_aid_2024.csv"
+    },
+    "resolve": {
+  "scale": {
+    "color": "independent"
+  }
+},
+    "vconcat": [
+        {
+            "title": {
+                "text": "Volume Categories — Marine Stings & Other",
+                "font": "Barlow",
+                "fontSize": 13,
+                "fontWeight": "bold",
+                "anchor": "start"
+            },
+            "width": 800,
+            "height": 220,
+            "mark": {
+                "type": "bar"
+            },
+            "transform": [
+                {
+                    "filter": "datum.category === 'Marine Stings' || datum.category === 'Other'"
+                }
+            ],
+            "encoding": {
+                "y": {
+                    "field": "state",
+                    "type": "ordinal",
+                    "sort": [
+                        "QLD",
+                        "NSW",
+                        "WA",
+                        "VIC",
+                        "SA",
+                        "NT",
+                        "TAS"
+                    ],
+                    "axis": {
+                        "title": null,
+                        "labelFontSize": 12
+                    }
+                },
+                "x": {
+                    "field": "count",
+                    "type": "quantitative",
+                    "stack": "zero",
+                    "axis": {
+                        "title": "Treatments",
+                        "format": ",d",
+                        "tickCount": 5,
+                        "labelFontSize": 11
+                    }
+                },
+                "color": {
+                    "field": "category",
+                    "type": "nominal",
+                    "scale": {
+                        "domain": [
+                            "Marine Stings",
+                            "Other"
+                        ],
+                        "range": [
+                            "#57EA4C",
+                            "#4CEA91"
+                        ]
+                    },
+                    "legend": {
+                        "title": "Category",
+                        "orient": "right",
+                        "labelFont": "Barlow",
+                        "titleFont": "Barlow"
+                    }
+                },
+                "tooltip": [
+                    {
+                        "field": "state",
+                        "title": "State"
+                    },
+                    {
+                        "field": "category",
+                        "title": "Treatment"
+                    },
+                    {
+                        "field": "count",
+                        "title": "Count",
+                        "format": ","
+                    }
+                ]
+            }
+        },
+        {
+            "title": {
+                "text": "Clinical Detail — CPR, Fractures & Cuts",
+                "font": "Barlow",
+                "fontSize": 13,
+                "fontWeight": "bold",
+                "anchor": "start"
+            },
+            "width": 800,
+            "height": 220,
+            "mark": {
+                "type": "bar"
+            },
+            "transform": [
+                {
+                    "filter": "datum.category === 'CPR Provided' || datum.category === 'Fractures/Dislocations' || datum.category === 'Cuts & Abrasions'"
+                }
+            ],
+            "encoding": {
+                "y": {
+                    "field": "state",
+                    "type": "ordinal",
+                    "sort": [
+                        "QLD",
+                        "NSW",
+                        "WA",
+                        "VIC",
+                        "SA",
+                        "NT",
+                        "TAS"
+                    ],
+                    "axis": {
+                        "title": null,
+                        "labelFontSize": 12
+                    }
+                },
+                "x": {
+                    "field": "count",
+                    "type": "quantitative",
+                    "stack": "zero",
+                    "axis": {
+                        "title": "Treatments",
+                        "format": ",d",
+                        "tickCount": 5,
+                        "labelFontSize": 11
+                    }
+                },
+                "color": {
+                    "field": "category",
+                    "type": "nominal",
+                    "scale": {
+                        "domain": [
+                            "Fractures/Dislocations",
+                            "CPR Provided",
+                            "Cuts & Abrasions"
+                        ],
+                        "range": [
+                            "#4CEADF",
+                            "#DF4CEA",
+                            "#EA4C57"
+                        ]
+                    },
+                    "legend": {
+                        "title": "Category",
+                        "orient": "right",
+                        "labelFont": "Barlow",
+                        "titleFont": "Barlow"
+                    }
+                },
+                "tooltip": [
+                    {
+                        "field": "state",
+                        "title": "State"
+                    },
+                    {
+                        "field": "category",
+                        "title": "Treatment"
+                    },
+                    {
+                        "field": "count",
+                        "title": "Count",
+                        "format": ","
+                    }
+                ]
+            }
+        }
+    ],
+    "config": {
+        "view": {
+            "stroke": null
+        },
+        "axis": {
+            "grid": true,
+            "gridColor": "#e8edf2",
+            "labelFont": "Barlow",
+            "titleFont": "Barlow",
+            "titleFontSize": 11
+        }
+    }
+}

@@ -1,0 +1,107 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Heatmap — beach hazard rating distribution by state, 2025",
+  "width": "container",
+  "height": 260,
+  "data": {
+    "url": "https://raw.githubusercontent.com/wtadr/2179/refs/heads/main/Data/beaches.csv"
+  },
+  "transform": [
+    {
+      "filter": "datum.hazard_rating != 0"
+    },
+    {
+      "bin": {
+        "step": 1
+      },
+      "field": "hazard_rating",
+      "as": [
+        "hazard_bin",
+        "hazard_bin_end"
+      ]
+    },
+    {
+      "aggregate": [
+        {
+          "op": "count",
+          "as": "beach_count"
+        }
+      ],
+      "groupby": [
+        "state",
+        "hazard_bin"
+      ]
+    }
+  ],
+  "mark": {
+    "type": "rect",
+    "cornerRadius": 2
+  },
+  "encoding": {
+    "y": {
+      "field": "state",
+      "type": "ordinal",
+      "sort": [
+        "NSW",
+        "QLD",
+        "VIC",
+        "WA",
+        "SA",
+        "TAS",
+        "NT"
+      ],
+      "axis": {
+        "title": null,
+        "labelFontSize": 12
+      }
+    },
+    "x": {
+      "field": "hazard_bin",
+      "type": "ordinal",
+      "axis": {
+        "title": "Hazard Rating",
+        "labelFontSize": 11,
+        "titleFontSize": 11,
+        "labelAngle": 0
+      }
+    },
+    "color": {
+      "field": "beach_count",
+      "type": "quantitative",
+      "scale": {
+        "scheme": "reds"
+      },
+      "legend": {
+        "title": "No. of Beaches",
+        "labelFont": "Barlow",
+        "titleFont": "Barlow"
+      }
+    },
+    "tooltip": [
+      {
+        "field": "state",
+        "title": "State"
+      },
+      {
+        "field": "hazard_bin",
+        "title": "Hazard Rating"
+      },
+      {
+        "field": "beach_count",
+        "title": "Beaches"
+      }
+    ]
+  },
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "grid": false,
+      "labelFont": "Barlow",
+      "titleFont": "Barlow",
+      "labelFontSize": 11,
+      "titleFontSize": 11
+    }
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Strip plot — beach hazard ratings (1–10) by state",
+  "width": "container",
+  "height": 240,
+  "data": {
+    "url": "https://raw.githubusercontent.com/wtadr/2179/refs/heads/main/Data/beaches.csv"
+  },
+  "transform": [
+    {
+      "filter": "datum.state != null && datum.state != ''"
+    },
+    {
+      "filter": "datum.hazard_rating != null"
+    }
+  ],
+  "mark": {
+    "type": "point",
+    "filled": true,
+    "opacity": 0.75,
+    "size": 70
+  },
+  "encoding": {
+    "y": {
+      "field": "state",
+      "type": "ordinal",
+      "sort": [
+        "NSW",
+        "QLD",
+        "VIC",
+        "WA",
+        "SA",
+        "TAS",
+        "NT"
+      ],
+      "axis": {
+        "title": null,
+        "labelFontSize": 12
+      }
+    },
+    "x": {
+      "field": "hazard_rating",
+      "type": "quantitative",
+      "axis": {
+        "title": "Hazard Rating (1–10)",
+        "tickCount": 10
+      },
+      "scale": {
+        "domain": [
+          1,
+          10
+        ]
+      }
+    },
+    "color": {
+      "field": "hazard_rating",
+      "type": "quantitative",
+      "scale": {
+        "scheme": "reds",
+        "domain": [
+          1,
+          10
+        ]
+      },
+      "legend": null
+    },
+    "tooltip": [
+      {
+        "field": "beach_name",
+        "title": "Beach"
+      },
+      {
+        "field": "state",
+        "title": "State"
+      },
+      {
+        "field": "hazard_rating",
+        "title": "Hazard Rating"
+      }
+    ]
+  },
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "grid": true,
+      "gridColor": "#e8edf2",
+      "labelFont": "Barlow",
+      "titleFont": "Barlow",
+      "labelFontSize": 11,
+      "titleFontSize": 11
+    }
+  }
+}

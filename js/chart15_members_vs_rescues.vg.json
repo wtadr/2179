@@ -1,0 +1,66 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 260,
+  "data": {
+    "url": "https://raw.githubusercontent.com/wtadr/2179/refs/heads/main/Data/coastal_annual.csv"
+  },
+  "transform": [
+    { "filter": "datum.year != null && datum.year != '' && datum.patrolling_members != null && datum.rescues != null && isValid(datum.patrolling_members) && isValid(datum.rescues)" },
+    { "calculate": "toString(datum.year)", "as": "year_str" },
+    { "calculate": "datum.preventative_actions / 1000", "as": "prev_actions_k" }
+  ],
+  "layer": [
+    {
+      "mark": { "type": "circle", "opacity": 0.85 },
+      "encoding": {
+        "x": {
+          "field": "patrolling_members",
+          "type": "quantitative",
+          "axis": { "title": "Patrolling Members", "format": ",d" },
+          "scale": { "domain": [43000, 46000] }
+        },
+        "y": {
+          "field": "rescues",
+          "type": "quantitative",
+          "axis": { "title": "Rescues Performed", "format": ",d" },
+          "scale": { "domain": [6000, 11000] }
+        },
+        "size": {
+          "field": "prev_actions_k",
+          "type": "quantitative",
+          "scale": { "range": [80, 500] },
+          "legend": { "title": "Prev. Actions (000s)", "orient": "bottom-right", "labelFont": "Barlow", "titleFont": "Barlow" }
+        },
+        "color": {
+          "field": "year_str",
+          "type": "ordinal",
+          "scale": { "scheme": "blues" },
+          "legend": { "title": "Year", "orient": "bottom", "labelFont": "Barlow", "titleFont": "Barlow" }
+        },
+        "tooltip": [
+          { "field": "year_str", "title": "Year" },
+          { "field": "patrolling_members", "title": "Members", "format": "," },
+          { "field": "rescues", "title": "Rescues", "format": "," },
+          { "field": "prev_actions_k", "title": "Prev. Actions (000s)", "format": ",.0f" }
+        ]
+      }
+    },
+    {
+      "mark": { "type": "text", "dy": -13, "fontSize": 11, "color": "#6b7c93", "font": "Barlow" },
+      "encoding": {
+        "x": { "field": "patrolling_members", "type": "quantitative" },
+        "y": { "field": "rescues", "type": "quantitative" },
+        "text": { "field": "year_str", "type": "ordinal" }
+      }
+    }
+  ],
+  "config": {
+    "view": { "stroke": null },
+    "axis": {
+      "grid": true, "gridColor": "#e8edf2",
+      "labelFont": "Barlow", "titleFont": "Barlow",
+      "labelFontSize": 11, "titleFontSize": 11
+    }
+  }
+}

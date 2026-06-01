@@ -1,0 +1,129 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "For Every Rescue, Lifesavers Stopped Hundreds More",
+
+    "subtitleColor": "#6b7c93",
+    "fontSize": 15,
+    "subtitleFontSize": 12,
+    "font": "Barlow Condensed",
+    "fontWeight": "bold",
+    "anchor": "start"
+  },
+  "width": "container",
+  "height": 220,
+  "data": {
+    "url": "https://raw.githubusercontent.com/wtadr/2179/refs/heads/main/Data/coastal_annual.csv"
+  },
+  "transform": [
+    { "filter": "datum.year >= 2019" },
+    {
+      "calculate": "round(datum.preventative_actions / datum.rescues)",
+      "as": "ratio"
+    }
+  ],
+  "layer": [
+    {
+      "mark": { "type": "area", "opacity": 0.12, "color": "#1565a8" },
+      "encoding": {
+        "x": { "field": "year", "type": "ordinal" },
+        "y": {
+          "field": "ratio",
+          "type": "quantitative",
+          "scale": { "domain": [0, 350] },
+          "axis": {
+            "title": "Preventative Actions per Rescue",
+            "labelFont": "Barlow",
+            "titleFont": "Barlow",
+            "labelFontSize": 11,
+            "titleFontSize": 11
+          }
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "line",
+        "color": "#1565a8",
+        "strokeWidth": 2.5,
+        "point": { "filled": true, "size": 60, "color": "#1565a8" }
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "ordinal",
+          "axis": { "title": null, "labelAngle": 0, "labelFont": "Barlow", "labelFontSize": 12 }
+        },
+        "y": {
+          "field": "ratio",
+          "type": "quantitative",
+          "scale": { "domain": [0, 350] },
+          "axis": {
+            "title": "Preventative Actions per Rescue",
+            "labelFont": "Barlow",
+            "titleFont": "Barlow"
+          }
+        },
+        "tooltip": [
+          { "field": "year", "title": "Year" },
+          { "field": "ratio", "title": "Preventative Actions per Rescue" },
+          { "field": "rescues", "title": "Rescues" },
+          { "field": "preventative_actions", "title": "Preventative Actions", "format": "," }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "dy": -14,
+        "fontSize": 11,
+        "fontWeight": "bold",
+        "color": "#1565a8",
+        "font": "Barlow"
+      },
+      "encoding": {
+        "x": { "field": "year", "type": "ordinal" },
+        "y": { "field": "ratio", "type": "quantitative" },
+        "text": { "field": "ratio", "type": "quantitative" }
+      }
+    },
+    {
+      "mark": {
+        "type": "rule",
+        "strokeDash": [4, 3],
+        "color": "#c0392b",
+        "strokeWidth": 1.2
+      },
+      "data": { "values": [{ "ref": 280 }] },
+      "encoding": {
+        "y": { "field": "ref", "type": "quantitative" }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -6,
+        "dy": -7,
+        "fontSize": 10,
+        "color": "#c0392b",
+        "font": "Barlow"
+      },
+      "data": { "values": [{ "year": "2025", "ref": 280 }] },
+      "encoding": {
+        "x": { "field": "year", "type": "ordinal" },
+        "y": { "field": "ref", "type": "quantitative" },
+        "text": { "value": "7-yr avg: 280" }
+      }
+    }
+  ],
+  "config": {
+    "view": { "stroke": null },
+    "axis": {
+      "grid": true,
+      "gridColor": "#e8edf2",
+      "labelFont": "Barlow",
+      "titleFont": "Barlow"
+    }
+  }
+}

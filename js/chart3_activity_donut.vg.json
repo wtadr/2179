@@ -1,0 +1,47 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Where Drowning Deaths Happen",
+    "subtitle": "Deaths by activity type, 2024–2025 combined",
+    "subtitleColor": "#6b7c93",
+    "fontSize": 15, "subtitleFontSize": 12,
+    "font": "Barlow Condensed", "fontWeight": "bold", "anchor": "start"
+  },
+  "width": "container",
+  "height": 240,
+  "data": { "url": "https://raw.githubusercontent.com/wtadr/2179/refs/heads/main/Data/deaths_by_activity.csv" },
+  "transform": [
+    { "filter": "datum.activity !== 'Other/unknown'" },
+    { "aggregate": [{ "op": "sum", "field": "deaths", "as": "total_deaths" }], "groupby": ["activity"] }
+  ],
+  "mark": { "type": "arc", "innerRadius": 0, "outerRadius": 100, "padAngle": 0.02 },
+  "encoding": {
+    "theta": {
+      "field": "total_deaths",
+      "type": "quantitative",
+      "sort": "descending"
+    },
+    "order": {
+      "field": "total_deaths",
+      "type": "quantitative",
+      "sort": "descending"
+    },
+    "color": {
+      "field": "activity", "type": "nominal",
+      "scale": {
+        "domain": ["Swimming/wading", "Boating/watercraft", "Rock/land fishing", "Snorkelling/freediving", "Falls"],
+        "range": ["#050099", "#1565a8", "#4a90d9", "#e67e22", "#c0392b"]
+      },
+      "legend": { "title": null, "orient": "bottom", "columns": 2, "labelFont": "Barlow", "labelFontSize": 11 }
+    },
+    "tooltip": [
+      { "field": "activity", "title": "Activity" },
+      { "field": "total_deaths", "title": "Deaths (2024–25 combined)" }
+    ]
+  },
+  "config": {
+    "view": { "stroke": null },
+    "legend": { "labelFont": "Barlow", "titleFont": "Barlow" },
+    "title": { "font": "Barlow Condensed", "fontWeight": "bold" }
+  }
+}

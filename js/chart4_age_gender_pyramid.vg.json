@@ -1,0 +1,122 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Population pyramid of Australian coastal drowning deaths by age group and gender, 2024.",
+  "data": {
+    "url": "https://raw.githubusercontent.com/wtadr/2179/refs/heads/main/Data/deaths_by_age_gender.csv"
+  },
+  "transform": [
+    { "filter": "datum.year == 2024" }
+  ],
+  "title": {
+    "text": "Age and Gender of Drowning Victims",
+    "subtitle": "Coastal drowning deaths by age group and gender, 2024 (n=150)",
+    "subtitleColor": "#6b7c93",
+    "fontSize": 15,
+    "subtitleFontSize": 12,
+    "font": "Barlow Condensed",
+    "fontWeight": "bold",
+    "anchor": "start"
+  },
+  "spacing": 0,
+  "hconcat": [
+    {
+      "transform": [
+        { "filter": { "field": "gender", "equal": "Female" } }
+      ],
+      "title": {
+        "text": "Female",
+        "color": "#FF4500",
+        "font": "Barlow Condensed",
+        "fontSize": 13,
+        "fontWeight": "bold"
+      },
+      "mark": "bar",
+      "encoding": {
+        "y": {
+          "field": "age_group",
+          "type": "ordinal",
+          "axis": null,
+          "sort": ["70+","60-69","50-59","40-49","30-39","25-29","20-24","15-19","0-14"]
+        },
+        "x": {
+          "aggregate": "sum",
+          "field": "deaths",
+          "title": "Deaths",
+          "axis": { "format": "d", "labelFont": "Barlow", "titleFont": "Barlow" },
+          "sort": "descending",
+          "scale": { "domain": [0, 30] }
+        },
+        "color": {
+          "field": "gender",
+          "type": "nominal",
+          "scale": { "domain": ["Female", "Male"], "range": ["#FF4500", "#0b3d6e"] },
+          "legend": null
+        },
+        "tooltip": [
+          { "field": "age_group", "title": "Age Group" },
+          { "field": "gender",    "title": "Gender" },
+          { "field": "deaths",    "title": "Deaths", "aggregate": "sum" }
+        ]
+      }
+    },
+    {
+      "width": 50,
+      "view": { "stroke": null },
+      "mark": { "type": "text", "align": "center", "font": "Barlow", "fontSize": 11, "color": "#3d4f66" },
+      "encoding": {
+        "y": {
+          "field": "age_group",
+          "type": "ordinal",
+          "axis": null,
+          "sort": ["70+","60-69","50-59","40-49","30-39","25-29","20-24","15-19","0-14"]
+        },
+        "text": { "field": "age_group", "type": "nominal" }
+      }
+    },
+    {
+      "transform": [
+        { "filter": { "field": "gender", "equal": "Male" } }
+      ],
+      "title": {
+        "text": "Male",
+        "color": "#0b3d6e",
+        "font": "Barlow Condensed",
+        "fontSize": 13,
+        "fontWeight": "bold"
+      },
+      "mark": "bar",
+      "encoding": {
+        "y": {
+          "field": "age_group",
+          "type": "ordinal",
+          "title": null,
+          "axis": null,
+          "sort": ["70+","60-69","50-59","40-49","30-39","25-29","20-24","15-19","0-14"]
+        },
+        "x": {
+          "aggregate": "sum",
+          "field": "deaths",
+          "title": "Deaths",
+          "axis": { "format": "d", "labelFont": "Barlow", "titleFont": "Barlow" },
+          "scale": { "domain": [0, 30] }
+        },
+        "color": {
+          "field": "gender",
+          "type": "nominal",
+          "scale": { "domain": ["Female", "Male"], "range": ["#e67e22", "#0b3d6e"] },
+          "legend": null
+        },
+        "tooltip": [
+          { "field": "age_group", "title": "Age Group" },
+          { "field": "gender",    "title": "Gender" },
+          { "field": "deaths",    "title": "Deaths", "aggregate": "sum" }
+        ]
+      }
+    }
+  ],
+  "config": {
+    "view": { "stroke": null },
+    "axis": { "grid": false, "labelFont": "Barlow", "titleFont": "Barlow" },
+    "title": { "font": "Barlow Condensed", "fontWeight": "bold" }
+  }
+}

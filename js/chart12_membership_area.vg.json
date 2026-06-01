@@ -1,0 +1,99 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Lollipop chart — SLSA patrolling members 2019–2025",
+  "width": "container",
+  "height": 200,
+  "data": {
+    "url": "https://raw.githubusercontent.com/wtadr/2179/refs/heads/main/Data/coastal_annual.csv"
+  },
+  "transform": [
+    {
+      "filter": "datum.year >= 2019"
+    }
+  ],
+  "encoding": {
+    "y": {
+      "field": "year",
+      "type": "ordinal",
+      "sort": [
+        "2025",
+        "2024",
+        "2023",
+        "2022",
+        "2021",
+        "2020",
+        "2019"
+      ],
+      "axis": {
+        "title": null,
+        "labelFontSize": 12
+      }
+    },
+    "x": {
+      "field": "patrolling_members",
+      "type": "quantitative",
+      "scale": {
+        "domain": [
+          43000,
+          46000
+        ]
+      },
+      "axis": {
+        "title": "Members",
+        "labelExpr": "datum.value >= 1000 ? (datum.value / 1000) + 'k' : datum.value",
+        "labelFontSize": 11,
+        "titleFontSize": 11
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "rule",
+        "color": "#1a7a4a",
+        "strokeWidth": 2,
+        "opacity": 0.6
+      },
+      "encoding": {
+        "x2": {
+          "datum": 43000
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "color": "#1a7a4a",
+        "size": 120,
+        "strokeWidth": 0
+      },
+      "encoding": {
+        "tooltip": [
+          {
+            "field": "year",
+            "title": "Year"
+          },
+          {
+            "field": "patrolling_members",
+            "title": "Members",
+            "format": ","
+          }
+        ]
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "grid": true,
+      "gridColor": "#e8edf2",
+      "labelFont": "Barlow",
+      "titleFont": "Barlow",
+      "labelFontSize": 11,
+      "titleFontSize": 11
+    }
+  }
+}

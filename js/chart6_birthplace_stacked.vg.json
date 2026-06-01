@@ -1,0 +1,110 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Normalised stacked bar — drowning deaths by country of birth, 2021–2025",
+  "width": "container",
+  "height": 200,
+  "data": {
+    "url": "https://raw.githubusercontent.com/wtadr/2179/refs/heads/main/Data/rls_drowning.csv"
+  },
+  "transform": [
+    {
+      "fold": [
+        "born_overseas",
+        "born_australia",
+        "born_unknown"
+      ],
+      "as": [
+        "birthplace",
+        "deaths"
+      ]
+    },
+    {
+      "calculate": "datum.birthplace == 'born_overseas' ? 'Overseas' : datum.birthplace == 'born_australia' ? 'Australian' : 'Unknown'",
+      "as": "born_label"
+    },
+    {
+      "aggregate": [
+        {
+          "op": "sum",
+          "field": "deaths",
+          "as": "total_deaths"
+        }
+      ],
+      "groupby": [
+        "year",
+        "born_label"
+      ]
+    }
+  ],
+  "mark": {
+    "type": "bar"
+  },
+  "encoding": {
+    "x": {
+      "field": "year",
+      "type": "ordinal",
+      "axis": {
+        "title": null,
+        "labelAngle": 0,
+        "labelFontSize": 12
+      }
+    },
+    "y": {
+      "field": "total_deaths",
+      "type": "quantitative",
+      "stack": "normalize",
+      "axis": {
+        "title": "Proportion",
+        "format": "%",
+        "labelFontSize": 11
+      }
+    },
+    "color": {
+      "field": "born_label",
+      "type": "nominal",
+      "scale": {
+        "domain": [
+          "Overseas",
+          "Australian",
+          "Unknown"
+        ],
+        "range": [
+          "#c0392b",
+          "#FFC000",
+          "#c8d0d8"
+        ]
+      },
+      "legend": {
+        "title": "Country of Birth",
+        "orient": "bottom",
+        "labelFont": "Barlow",
+        "titleFont": "Barlow"
+      }
+    },
+    "tooltip": [
+      {
+        "field": "year",
+        "title": "Year"
+      },
+      {
+        "field": "born_label",
+        "title": "Born"
+      },
+      {
+        "field": "total_deaths",
+        "title": "Deaths"
+      }
+    ]
+  },
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "grid": true,
+      "gridColor": "#e8edf2",
+      "labelFont": "Barlow",
+      "titleFont": "Barlow"
+    }
+  }
+}
